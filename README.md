@@ -9,14 +9,14 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/node-%3E%3D18-brightgreen" />
+  <img src="https://img.shields.io/badge/node-%3E%3D20-brightgreen" />
   <img src="https://img.shields.io/badge/license-MIT-blue" />
   <img src="https://img.shields.io/badge/multi--device-supported-success" />
 </p>
 
 ---
 
-## 📑 Table of Contents 
+## Table of Contents 
 
 - [About](#about)
 - [Installation](#installation)
