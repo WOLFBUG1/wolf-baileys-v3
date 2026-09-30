@@ -26,14 +26,16 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Import](#import)
-- [Import AI Rich Message Builder](#import-ai-rich-message-builder)
 - [Quick Start](#quick-start)
   - [With QR Code](#with-qr-code)
   - [With Pairing Code](#with-pairing-code)
 - [Sending Message](#sending-messate)
   - [Generic Send / Relay](#generic-send--relay)
   - [Simple Senders](#simple-senders)
+  - [Rich Menu](#rich-menu)
   - [Sending Message with Participant](#sending-message-with-participant)
+- [Message Builder](#message-builder)
+  - [Import](#import)
 - [Why Choose WhatsApp Baileys?](#why-choose-whatsapp-baileys)
 - [Contributors](#contributors)
 - [Contact Developer](#contact-developer)
@@ -50,7 +52,7 @@
   
 ---
 
-## Installation
+# Installation
 
 ```bash
 npm install @whiskeysockets/baileys
@@ -68,7 +70,7 @@ Add it to your `package.json`:
 
 ---
 
-## Import
+# Import
 
 ```javascript
 const {
@@ -79,31 +81,9 @@ const {
 
 ---
 
-## Import AI Rich Message Builder
+# Quick Start
 
-```javascript
-const {
-  default: makeWASocket,
-  useMultiFileAuthState,
-  DisconnectReason,
-  Button,
-  ButtonV2,
-  Carousel,
-  AIRich,
-  Toolkit,
-  MessageBuilder,
-  MB
-} = require('@whiskeysockets/baileys');
-```
-
-> [!NOTE]
-> MessageBuilder sudah terintegrasi. Kamu tidak perlu memasang `baileys-mbuilder` secara terpisah.
-
----
-
-## Quick Start
-
-### With QR Code
+## With QR Code
 
 ```javascript
 const {
@@ -118,7 +98,7 @@ const client = makeWASocket({
 });
 ```
 
-### With Pairing Code
+## With Pairing Code
 
 ```javascript
 const {
@@ -142,9 +122,9 @@ console.log("Ur pairing code : " + code);
 
 ---
 
-## Sending Message
+# Sending Message
 
-### Generic Send / Relay
+## Generic Send / Relay
 
 ```javascript
 // relayMessage — sends a raw message object, bypassing the sendMessage pipeline
@@ -158,19 +138,55 @@ await client.sendMessage(m.chat, {
 })
 ```
 
-### Simple Senders
+## Simple Senders
 
 ```javascript
-await client.sendText(jid, 'Hi!', { contextInfo: { mentionedJid: [jid] } })
-await client.sendImage(jid, { url: './photo.jpg' }, 'image caption')
-await client.sendVideo(jid, { url: './clip.mp4' }, 'video caption')
-await client.sendAudio(jid, { url: './clip.mp3' })
-await client.sendLocation(jid, 'Location name', -6.2, 106.8, 'https://maps.example', '1234567890')
-await client.sendPoll(jid, 'Pick one', ['Option 1', 'Option 2', 'Option 3'], /* multiSelect */ true)
-await client.sendQuiz(jid, 'Correct answer?', ['1', '2', '3'], /* correctIndex */ '2')
+await client.sendText(m.chat, 'Hi!', { contextInfo: { mentionedJid: [jid] } })
+await client.sendImage(m.chat, { url: './photo.jpg' }, 'image caption')
+await client.sendVideo(m.chat, { url: './clip.mp4' }, 'video caption')
+await client.sendAudio(m.chat, { url: './clip.mp3' })
+await client.sendLocation(m.chat, 'Location name', -6.2, 106.8, 'https://maps.example', '1234567890')
+await client.sendPoll(m.chat, 'Pick one', ['Option 1', 'Option 2', 'Option 3'], /* multiSelect */ true)
+await client.sendQuiz(m.chat, 'Correct answer?', ['1', '2', '3'], /* correctIndex */ '2')
 ```
 
-### Sending Message with Participant
+## Rich Menu
+
+`sendRich` sends a rich response with an optional header image, action buttons, carousel cards, and an open-URL footer:
+
+```javascript
+await client.sendRich(m.chat, {
+  header: {
+    disclaimer: true,
+    disclaimerText: "t.me/luyatiem",
+    title: "XvnSynC"
+  },
+  body: {
+    title: "Select Option",
+    buttons: ["Menu 1", "Menu 2"]
+  },
+  footer: {
+    text: "Telegram Channel",
+    url: "https://t.me/aboutvin7x"
+  }
+});
+```
+
+# Sending Message with Participant
+
+`relayMessage`:
+
+```javascript
+await client.relayMessage(m.chat, {
+  extendedTextMessage: {
+    text: "XvnSynC"
+  }
+}, {
+  ptcp: true
+});
+```
+
+`sendMessage`:
 
 ```javascript
 await client.sendMessage(m.chat, {
@@ -182,13 +198,57 @@ await client.sendMessage(m.chat, {
 
 ---
 
-## Why Choose WhatsApp Baileys?
+# Message Builder
+
+MessageBuilder v4.7 sudah disertakan langsung di dalam `"github:xvnsync/xbails"`.
+
+## Import
+
+```javascript
+const {
+  VERSION, 
+  Button, 
+  ButtonV2, 
+  Carousel, 
+  AIRich, 
+  Toolkit, 
+  bind,
+  MB
+} = require('@whiskeysockets/baileys');
+```
+
+> [!NOTE]
+> MessageBuilder sudah terintegrasi. Kamu tidak perlu memasang `baileys-mbuilder` secara terpisah.
+
+## Button
+
+Builder `Button` dipakai untuk pesan interaktif native-flow.
+
+### Quick Reply + URL + Copy
+
+```js
+const { MB } = require('@whiskeysockets/baileys')
+
+const msg = new MB.Button(client)
+  .setTitle('Select Menu')
+  .setBody('Pilih salah satu di bawah.')
+  .setFooter('t.me/luyatiem')
+  .addReply('Ping', 'ping')
+  .addUrl('Buka Website', 'https://example.com')
+  .addCopy('Salin Kode', 'XVNSYNC')
+
+await msg.send(m.chat)
+```
+
+---
+
+# Why Choose WhatsApp Baileys?
 
 Because this library offers high stability, full features, and an actively improved pairing process. It is ideal for developers aiming to create professional and secure WhatsApp automation solutions. Support for the latest WhatsApp features ensures compatibility with platform updates.
 
 ---
 
-## Contributors
+# Contributors
 
 <table>
   <tr>
