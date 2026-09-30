@@ -21,7 +21,7 @@
 
 ---
 
-## Table of Contents 
+# Table of Contents 
 
 - [Requirements](#requirements)
 - [Installation](#installation)
@@ -40,7 +40,7 @@
 
 ---
 
-## Requirements
+# Requirements
 
 - Node.js **>= 20**
 - Optional peer dependencies depending on the features you use:
