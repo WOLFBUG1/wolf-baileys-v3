@@ -1,5 +1,5 @@
 {
-    "name": "xbails",
+    "name": "@wolfbug1/wolf-baileys-v3",
     "version": "1.0.1",
     "description": "A WebSockets library for interacting with WhatsApp Web.",
     "keywords": [
@@ -7,10 +7,10 @@
         "whatsapp",
         "whatsapp-baileys"
     ],
-    "homepage": "https://github.com/xvnsync/xbails",
+    "homepage": "https://github.com/WOLFBUG1/wolf-baileys-v3",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/xvnsync/xbails.git"
+        "url": "git+https://github.com/WOLFBUG1/wolf-baileys-v3.git"
     },
     "license": "MIT",
     "author": "VinnxsynC",

@@ -2,7 +2,10 @@
   <img src="https://e.top4top.io/p_38721hu6c1.jpg" width="250"/>
 </p>
 
-<h1 align="center">WhatsApp Baileys</h1>
+<h1 align="center">Wolf Baileys V3</h1>
+
+Maintained by [WOLFBUG1](https://github.com/WOLFBUG1). Forked from [xvnsync/xbails](https://github.com/xvnsync/xbails); original author and contributor credits are preserved.
+
 
 <p align="center">
   Open-source library for building fast, stable WhatsApp automation and integrations over WebSocket — no browser required.
@@ -15,7 +18,7 @@
 </p>
 
 > [!NOTE]
-> `"@whiskeysockets/baileys": "github:xvnsync/xbails"` is an unofficial WhatsApp Web API library. Not affiliated, not authorized, not maintained, not sponsored, and not endorsed by WhatsApp or Meta.
+> `"@wolfbug1/wolf-baileys-v3": "github:WOLFBUG1/wolf-baileys-v3"` is an unofficial WhatsApp Web API library. Not affiliated, not authorized, not maintained, not sponsored, and not endorsed by WhatsApp or Meta.
 >
 > Use Baileys responsibly, and comply with the WhatsApp Terms of Service and applicable laws.
 
@@ -29,7 +32,7 @@
 - [Quick Start](#quick-start)
   - [With QR Code](#with-qr-code)
   - [With Pairing Code](#with-pairing-code)
-- [Sending Message](#sending-messate)
+- [Sending Message](#sending-message)
   - [Generic Send / Relay](#generic-send--relay)
   - [Simple Senders](#simple-senders)
   - [Rich Menu](#rich-menu)
@@ -55,7 +58,7 @@
 # Installation
 
 ```bash
-npm install @whiskeysockets/baileys
+npm install github:WOLFBUG1/wolf-baileys-v3
 ```
 
 Add it to your `package.json`:
@@ -63,7 +66,7 @@ Add it to your `package.json`:
 ```json
 {
   "dependencies": {
-    "@whiskeysockets/baileys": "github:xvnsync/xbails"
+    "@wolfbug1/wolf-baileys-v3": "github:WOLFBUG1/wolf-baileys-v3"
   }
 }
 ```
@@ -76,7 +79,7 @@ Add it to your `package.json`:
 const {
   default: makeWASocket,
   // Other Options
-} = require('@whiskeysockets/baileys');
+} = require('@wolfbug1/wolf-baileys-v3');
 ```
 
 ---
@@ -90,7 +93,7 @@ const {
   default: makeWASocket,
   Browsers
   // Other Options
-} = require('@whiskeysockets/baileys');
+} = require('@wolfbug1/wolf-baileys-v3');
 
 const client = makeWASocket({
   browser: Browsers.ubuntu('Chrome'),
@@ -105,7 +108,7 @@ const {
   default: makeWASocket,
   fetchLatestWAWebVersion,
   Browsers
-} = require('@whiskeysockets/baileys');
+} = require('@wolfbug1/wolf-baileys-v3');
 
 const client = makeWASocket({
   browser: Browsers.ubuntu('Chrome'),
@@ -200,7 +203,7 @@ await client.sendMessage(m.chat, {
 
 # Message Builder
 
-MessageBuilder v4.7 sudah disertakan langsung di dalam `"github:xvnsync/xbails"`.
+MessageBuilder v4.7 sudah disertakan langsung di dalam `"github:WOLFBUG1/wolf-baileys-v3"`.
 
 ## Import
 
@@ -214,7 +217,7 @@ const {
   Toolkit, 
   bind,
   MB
-} = require('@whiskeysockets/baileys');
+} = require('@wolfbug1/wolf-baileys-v3');
 ```
 
 > [!NOTE]
@@ -227,7 +230,7 @@ Builder `Button` dipakai untuk pesan interaktif native-flow.
 ### Quick Reply + URL + Copy
 
 ```js
-const { MB } = require('@whiskeysockets/baileys')
+const { MB } = require('@wolfbug1/wolf-baileys-v3')
 
 const msg = new MB.Button(client)
   .setTitle('Select Menu')
